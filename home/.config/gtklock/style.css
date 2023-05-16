@@ -1,0 +1,43 @@
+@define-color white		#eceff4;
+@define-color red		#cc241d;
+@define-color background	#1d2021;
+
+window {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+#clock-label {
+  color: @white;
+  margin-bottom: 1rem;
+}
+
+#input-label {
+  color: @white;
+  font-size: 24pt;
+}
+
+#error-label {
+  color: @red;
+  font-weight: bold;
+}
+
+/* #input-field,  */
+/* #input-field:active, */
+/* #input-field:hover,  */
+/* #input-field:focus { */
+/*   border-top-color: red; */
+/* } */
+
+
+#window-box {
+  background: transparent;
+  
+	/* background: radial-gradient( */
+		/* 58deg, */
+	 /*  circle at bottom, */
+		/* #3c3836 15%, */
+		/* #1d2021 100% */
+	 /*  ); */
+  padding: 2em;
+  border-radius: 1em; 
+}

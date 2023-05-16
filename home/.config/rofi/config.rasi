@@ -1,0 +1,163 @@
+configuration {
+  drun-display-format: "{icon} {name}";
+  display-drun: "Run:";
+  font: "Hack Nerd 13";
+  modes: "combi,calc,filebrowser,keys";
+  combi-modes: "drun,filebrowser,run,keys";
+  show-icons: true;
+  icon-theme: "kora yellow";
+
+  click-to-exit: true;
+  combi-hide-mode-prefix: false;
+  sidebar-mode: true;
+  display-window: " ";
+  display-windowcd: " ";
+  display-run: " ";
+  display-ssh: " ";
+  display-combi: " ";
+  display-drun: " ";
+  display-calc: " ";
+  display-filebrowser: " ";
+}
+
+@theme "/dev/null"
+
+* {
+  bg:  #28282855;
+  bg2: #ebdbb2;
+  bg3: #1d2021;
+  bg4: #b8bb26;
+  highlight: #b8bb26;
+  fg: #ebdbb2;
+  fg2: #1d2021;
+  background-color: @bg;
+  textcolor: #ffffff;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  spacing: 0;
+}
+
+mainbox {
+  // background-coadding: 15px;
+  // children: [inputbar, message, listview, mode-switcher];
+  children: [inputbar, message, listview];
+  border-radius: 0;
+  // border: 2px;
+  // border-color: #ebdbb2;
+}
+
+window {
+  location: center;
+  width: 30%;
+  height: 40%;
+  border-radius: 0;
+}
+
+element {
+  padding: 5px 0;
+  text-color: @fg;
+  background-color: transparent;
+}
+
+element-text {
+  background-color: transparent;
+  text-color: @fg;
+  vertical-align: 0.5;
+}
+
+element-icon {
+  padding: 7px 7px 7px 7px;
+  background-color: transparent;
+}
+
+element-icon selected {
+  background-color: @bg2;
+  border-radius: 8px 0px 0px 8px;
+}
+
+element-text selected {
+  background-color: @bg2;
+  color: @fg2;
+  border-radius: 0px 8px 8px 0px;
+}
+
+highlight {
+  color: @bg4;
+}
+
+listview {
+  background-color: transparent;
+  color: @fg;
+  columns: 1;
+  margin: 10px 5px;
+}
+
+element-icon {
+  size: 25;
+}
+
+element selected {
+  background-color: transparent;
+}
+
+message {
+  border: 0px;
+  text-color: @textcolor;
+  background-color: transparent;
+  horizontal-align: 0.5;
+  padding: 10px 0;
+}
+
+textbox {
+  text-color: @fg;
+  background-color: transparent;
+  horizontal-align: 0.5;
+}
+
+inputbar {
+  children: [prompt, textbox-prompt-colon, entry];
+  // padding: 30px 0 10px 0;
+  border-color: @bg2;
+  background-color: @bg;
+}
+
+prompt {
+  font: "Hack Nerd 28";
+  text-color: @fg;
+  border-radius: 20px;
+  enabled: false;
+}
+
+textbox-prompt-colon {
+  expand: false;
+  padding: 5px 17px;
+  font: "Hack Nerd 18";
+  text-color: @fg;
+  background-color: @bg3;
+  // border-radius: 8px 0px 0px 8px;
+  str: " ";
+}
+
+entry {
+  font: "Hack Nerd Bold 14";
+  vertical-align: 0.5;
+  // horizontal-align: 0.5;
+  placeholder: "Search";
+  text-color: @fg;
+  background-color: @bg3;
+  // border-radius: 0 8px 8px 0;
+  border-color: @fg;
+}
+
+mode-switcher {
+  margin: 0px 0 0 0;
+}
+
+button{
+  background-color: @fg;
+  text-color: @fg2;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 7px;
+}
