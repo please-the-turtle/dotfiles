@@ -1,0 +1,21 @@
+[icons]
+# Add your icons mapping
+# use double quote the key and the value
+# take class name from 'hyprctl clients'
+"DEFAULT" = ""
+"kitty" = ""
+"alacritty" = ""
+"firefox" = ""
+"code" = "󰨞 "
+"thunderbird" = "󰇮 "
+"org.telegram.desktop" = " "
+"org.pwmt.zathura" = " "
+"libreoffice-writer" = "󰈙"
+"thunar" = " "
+"mousepad" = "󰈙"
+"blender" = "󰂫"
+"org.inkscape.Inkscape" = "󱣙 "
+"Aseprite" = " "
+"Steam" = " "
+"jetbrains-idea-ce" = ""
+"Godot" = ""

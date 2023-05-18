@@ -1,0 +1,334 @@
+/* Keyframes */
+
+@keyframes blink-critical {
+	to {
+		/*color: @white;*/
+		background-color: @critical;
+	}
+}
+
+
+/* Styles */
+
+/* Colors (gruvbox) */
+@define-color black    #282828;
+@define-color red      #cc241d;
+@define-color green    #98971a;
+@define-color yellow   #d79921;
+@define-color blue     #458588;
+@define-color purple   #b16286;
+@define-color aqua     #689d6a;
+@define-color gray     #303536;
+@define-color brgray   #928374;
+@define-color brred	   #fb4934;
+@define-color brgreen  #b8bb26;
+@define-color bryellow #fabd2f;
+@define-color brblue   #83a598;
+@define-color brpurple #d3869b;
+@define-color braqua   #8ec07c;
+@define-color white    #eceff4;
+@define-color accent   #ebdbb2;
+
+@define-color background  #1d2021;
+@define-color bg1         #3c3836;
+@define-color bg2         #504945;
+@define-color bg3         #665c54;
+@define-color bg4         #7c6f64;
+@define-color bg5         #928374;
+
+@define-color warning     @bryellow;
+@define-color critical    @red;
+@define-color mode        @black;
+@define-color unfocused   @bg2;
+@define-color focused     @braqua;
+@define-color inactive    @purple;
+@define-color sound       @bg3;
+@define-color network     @bg3;
+@define-color memory      @bg2;
+@define-color cpu         @green;
+@define-color temp        @brgreen;
+@define-color layout      @bryellow;
+@define-color battery     @bg1;
+@define-color date        @bg2;
+@define-color time        @bg1;
+@define-color language    @bg4;
+@define-color updates     @bg3;
+@define-color weather     @bg3;
+
+/* Reset all styles */
+* {
+	border: none;
+	border-radius: 0;
+	min-height: 0;
+	margin: 0;
+	padding: 0;
+	box-shadow: none;
+	text-shadow: none;
+}
+
+/* The whole bar */
+#waybar {
+	/* background: @background; */
+	background: transparent;
+	color: @white;
+	font-family: Hack Nerd Font;
+	font-size: 11pt;
+}
+
+.modules-right {
+	background-color: @gray;
+	margin: 3pt;
+	border-radius: 6pt
+}
+
+.modules-left {
+	background-color: @gray;
+	margin: 3pt;
+	border-radius: 6pt;
+}
+
+/* Each module */
+#battery,
+#clock,
+#cpu,
+#language,
+#memory,
+#mode,
+#network,
+#pulseaudio,
+#temperature,
+#tray,
+#custom-updates {
+	padding-left: 8pt;
+	padding-right: 8pt;
+  border-right-color: transparent;
+}
+
+/* Each critical module */
+#mode,
+#memory.critical,
+#cpu.critical,
+#temperature.critical,
+#battery.critical.discharging {
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+	animation-name: blink-critical;
+	animation-duration: 1s;
+	border-radius: 6pt;
+}
+
+/* Each warning */
+#network.disconnected,
+#memory.warning,
+#cpu.warning,
+#temperature.warning,
+#battery.warning.discharging {
+	color: @warning;
+}
+
+tooltip {
+	background: @background;
+	font-size: 12pt;
+	color: @white;
+}
+
+/* And now modules themselves in their respective order */
+
+#custom-weather {
+	background: @weather;
+}
+
+#custom-arrow-weather {
+	color: @weather;
+	font-size: 14pt;
+}
+
+#custom-updates {
+	background: @updates;
+}
+
+#custom-arrow-updates {
+	background: @language;
+	color: @updates;
+	font-size: 14pt;
+}
+
+#custom-media {
+	border-radius: 0 6pt 6pt 0;
+	margin-right: 3pt;
+	font-size: 14pt;
+}
+
+#custom-arrow-media {
+	font-size: 14pt;
+	color: @bg1;
+	background: transparent;
+}
+
+#custom-media-next {
+	font-size: 14pt;
+	margin-right: 10pt;
+}
+
+#custom-media-stop {
+	font-size: 11pt;
+	margin-right: 10pt;
+}
+
+#custom-mouse-battery {
+  background: @battery;
+}
+
+/* Workspaces stuff */
+
+#workspaces {
+	margin: 3pt 6pt;
+}
+
+#workspaces button {
+	color: @white;
+	font-weight: 600;
+	font-size: 12pt;
+	border-radius: 10pt;
+	padding: 1.5pt;
+}
+
+/* Active (on focused output) */
+#workspaces button.active {
+	color: @black;
+	background: radial-gradient(
+		/* 58deg, */
+		@accent,
+		@bg1
+	  );
+	padding: 0 6pt;
+}
+
+/* Contains an urgent window */
+#workspaces button.urgent {
+	color: @green;
+}
+
+/* Style when cursor is on the button */
+#workspaces button.hidden {
+	color: @blue;
+}
+
+#taskbar {
+  margin: 3pt 0pt;
+}
+
+#taskbar button {
+  color: @white;
+	font-weight: 600;
+	font-size: 12pt;
+	border-radius: 10pt;
+	padding: 2pt 3pt;
+}
+
+#taskbar button.active {
+  color: @black;
+	background: radial-gradient(
+		/* 58deg, */
+		@accent,
+		@bg1
+	  );
+	padding: 0 6pt;
+}
+
+#window {
+	/*margin-right: 10pt;
+	margin-left: 10pt;*/
+	color: @white;
+}
+
+#network {
+	background: @network;
+}
+
+#custom-arrow-network {
+	font-size: 14pt;
+	color: @network;
+}
+
+#memory {
+	background: @memory;
+}
+
+#custom-arrow-memory {
+	font-size: 14pt;
+	color: @memory;
+	background: @updates;
+}
+
+#cpu {
+	background: @cpu;
+}
+
+#custom-arrow-cpu {
+	font-size: 14pt;
+	color: @cpu;
+	background: @memory;
+}
+
+#temperature {
+	background: @temp;
+}
+
+#custom-arrow-temp {
+	font-size: 14pt;
+	color: @temp;
+	background: @cpu;
+}
+
+#language {
+	background: @language;
+}
+
+#custom-arrow-language {
+	font-size: 14pt;
+	color: @language;
+}
+
+#battery {
+	background: @battery;
+	border-radius: 0 6pt 6pt 0; 
+	margin-right: 0;
+}
+
+#custom-arrow-battery {
+	font-size: 14pt;
+	color: @battery;
+	background: @memory;
+}
+
+#clock.time {
+  font-weight: 600;
+	background-color: @time;
+	border-radius: 6pt 0 0 6pt;
+}
+
+#custom-arrow-time {
+	font-size: 14pt;
+	color: @time;
+	background: @date;
+}
+
+#clock.date {
+	background-color: @date;
+	/* border-radius: 0 6pt 6pt 0; */
+}
+
+#custom-arrow-date {
+	font-size: 14pt;
+	color: @date;
+	background: @weather;
+	padding: 0;
+}
+
+#custom-delimeter {
+  font-size: 16pt;
+  padding: 0;
+  margin: 0;
+}

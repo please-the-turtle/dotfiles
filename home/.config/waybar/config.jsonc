@@ -1,0 +1,347 @@
+{ // Global configuration
+	"layer": "top",
+	"position": "top",
+	"height": 30,
+
+	"modules-left": [
+		"clock#time",
+		"custom/arrow-time",
+		"clock#date",
+		"custom/arrow-date",
+		"custom/weather",
+		"custom/arrow-weather", 
+		// "custom/dots",
+    // "custom/media-stop",
+		"custom/media",
+		"custom/media-next"
+	],
+	
+	"modules-center": [
+		"wlr/workspaces",
+	  "custom/delimeter",
+	  "wlr/taskbar"
+		// "hyprland/window"
+	],
+	
+	"modules-right": [
+		"tray",
+		"idle_inhibitor",
+		// "custom/arrow-network",
+		// "network",
+		// "custom/arrow-alsa",
+		// "custom/alsa",
+		"custom/arrow-language",
+		"hyprland/language",
+		"custom/arrow-updates",
+		"custom/updates",
+		"custom/arrow-memory",
+		"memory",
+		"custom/arrow-battery",
+    "custom/mouse-battery",
+    "custom/mouse-connection-monitor",
+		"battery"
+		// "custom/arrow-language",
+	],
+
+	// Modules
+
+	"hyprland/language": {
+		"format-en": " EN",
+		"format-ru": " RU"
+	},
+
+	"idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": " ",
+            "deactivated": " "
+        }
+    },
+
+	"wlr/workspaces": {
+		// "disable-scroll": true,
+		"on-scroll-up": "hyprctl dispatch workspace e-1",
+		"on-scroll-down": "hyprctl dispatch workspace e+1",
+		"sort-by-number": true,
+		"all-outputs": false,
+		"active-only": false,
+		"on-click": "activate",
+		"format": "{name}",
+		"format-icons": {
+		  "1": "",
+		  "2": "",
+		  "3": "",
+		  "4": "",
+		  "5": "",
+		  "6": "",
+		  "7": "",
+		  "8": "",
+		  "urgent": " ",
+		  "focused": "",
+		  "default": ""
+		}
+	},
+
+	"wlr/taskbar": {
+		"format": "{icon}",
+		"icon-size": 18,
+    "icon-theme": "kora-yellow",
+		"tooltip-format": "{title}",
+		"all-outputs": false,
+		"active-first": false,
+		"on-click": "activate",
+	  "on-click-middle": "close",
+		"ignore-list": [],
+		"app_ids-mapping": {}
+	},
+
+	"hyprland/window": {
+		"format": "{}",
+		"max-length": 50,
+		"on-click-middle": "hyprctl dispatch -- killactive",
+		"rewrite": {
+			"(..*)": "󰇙 $1"
+		}
+	},
+
+	"network": {
+        "format-wifi": "直 {essid}",
+        "format-ethernet": " {essid}",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "睊 Disconnected",
+        "tooltip-format-wifi": "Signal Strenght: {signalStrength}% | Down Speed: {bandwidthDownBits}, Up Speed: {bandwidthUpBits}",
+        "on-click": "nm-connection-editor"
+    },
+
+	"custom/media": {
+		"format": "{}",
+		"escape": true,
+		"return-type": "json",
+		"on-click": "playerctl play-pause",
+		// "max-length": 30,
+		// "on-click-right": "playerctl stop",
+		// "smooth-scrolling-threshold": 10, // This value was tested using a trackpad, it should be lowered if using a mouse.
+		// "on-scroll-up": "playerctl next",
+		// "on-scroll-down": "playerctl previous",
+		"exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null"
+	},
+
+	"custom/media-next": {
+		"format": "󰒭",
+    "tooltip": false,
+		"on-click": "playerctl next"
+	},
+
+  "custom/media-stop": {
+    "format": " ",
+    "tooltip": false,
+    "on-click": "playerctl stop"
+  },
+
+	"battery": {
+		"interval": 10,
+		"states": {
+			"warning": 30,
+			"critical": 15
+		},
+		"format-time": "{H}:{M:02}",
+		"format": "{icon} {capacity}%",
+		"format-charging": " {capacity}%",
+		"format-charging-full": " {capacity}%",
+		"format-full": "{icon} {capacity}%",
+		"format-alt": "{icon} {power}W",
+		"format-icons": [
+			" ",
+			" ",
+			" ",
+			" ",
+			" "
+		]
+	},
+
+  "custom/mouse-battery": {
+    "interval": 1800,
+    "format": "{}",
+    "tooltip": true,
+    // "on-click": "$HOME/.config/waybar/mouse-battery.sh 0",
+    "exec": "$HOME/.config/waybar/mouse-battery.sh 3",
+    // "exec-if": "echo nope",
+    "signal": 12
+  },
+
+  "custom/mouse-connection-monitor": {
+    "interval": "once",
+    "exec": "$HOME/.config/waybar/mouse-connection-monitor.sh"
+  },
+
+	"clock#time": {
+		"interval": 10,
+		"on-click": "alacritty -e tty-clock -s -c -C 7",
+		"format": "{:%H:%M}"
+	},
+
+	"clock#date": {
+		"interval": 20,
+		"format": "{:%a, %e %b %Y}",
+		"tooltip": true,
+		"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+		"on-click": "alacritty -e khal interactive"
+	},
+
+	"cpu": {
+		"interval": 5,
+		"tooltip": false,
+		"format": " {usage}%",
+		"format-alt": " {load}",
+		"states": {
+			"warning": 70,
+			"critical": 90
+		}
+	},
+
+	"memory": {
+		"interval": 5,
+		"format": "󰍛 {used:0.1f}G",
+		"states": {
+			"warning": 80
+		},
+		"tooltip": false
+	},
+
+	"pulseaudio": {
+		"scroll-step": 1,
+		"format": "{icon} {volume}%",
+		"format-bluetooth": "{icon} {volume}%",
+		"format-muted": "",
+		"format-icons": {
+			"headphones": "",
+			"handsfree": "",
+			"headset": "",
+			"phone": "",
+			"portable": "",
+			"car": "",
+			"default": ["", ""]
+		},
+		"on-click": "pavucontrol"
+	},
+
+	"temperature": {
+		"critical-threshold": 90,
+		"interval": 5,
+		"format": "{icon} {temperatureC}°",
+		"format-icons": [
+			"",
+			"",
+			"",
+			"",
+			""
+		],
+		"tooltip": false
+	},
+
+	"custom/alsa": {
+		"exec": "amixer get Master | sed -nre 's/.*\\[off\\].*/ muted/p; s/.*\\[(.*%)\\].*/ \\1/p'",
+		"on-click": "amixer set Master toggle",
+		"on-scroll-up": "amixer set Master 5%+",
+		"on-scroll-down": "amixer set Master 5%-",
+		"signal": 11,
+		"interval": 10,
+		"tooltip": false
+	},
+
+	"custom/weather": {
+		"interval": 3600,
+    "exec": "$HOME/.config/waybar/weather.py",
+    "on-click": "pkill -RTMIN+14 waybar",
+		"tooltip": true,
+    "format": "{}",
+    "escape": true,
+    "signal": 14
+  },
+
+	"custom/updates": {
+    "exec": "checkupdates 2>/dev/null | wc -l",
+    "on-click": "pkill -RTMIN+13 waybar",
+    "interval": 2400,
+    "format": " {}",
+    "tooltip": false,
+    "signal": 13
+  },
+
+	"sndio": {
+		"format": " {}%"
+	},
+
+	"tray": {
+		"icon-size": 18,
+		"spacing": 10
+	},
+
+	"custom/arrow-alsa": {
+		"format": "",
+		"tooltip": false
+	},
+
+	"custom/arrow-network": {
+		"format": "",
+		"tooltip": false
+	},
+
+	"custom/arrow-memory": {
+		"format": "",
+		"tooltip": false
+	},
+
+	"custom/arrow-cpu": {
+		"format": "",
+		"tooltip": false
+	},
+
+	"custom/arrow-battery": {
+		"format": "",
+		"tooltip": false
+	},
+
+	"custom/arrow-language": {
+		"format": "",
+		"tooltip": false
+	},
+
+	"custom/arrow-tray": {
+		"format": "",
+		"tooltip": false
+	},
+
+	"custom/arrow-time": {
+		"format": "",
+		"tooltip": false
+	},
+
+	"custom/arrow-date": {
+		"format": " ",
+		"tooltip": false
+	},
+
+	"custom/arrow-media": {
+		"format": "",
+		"tooltip": false
+	},
+
+	"custom/arrow-updates": {
+		"format": "",
+		"tooltip": false
+	},
+
+	"custom/arrow-weather": {
+		"format": " ",
+		"tooltip": false
+	},
+
+	"custom/delimeter": {
+		"format": "{}",
+    "on-click": "$HOME/.config/waybar/random-icon.sh",
+    "interval": "once",
+    "exec": "$HOME/.config/waybar/random-icon.sh",
+		"tooltip": false
+	}
+}
