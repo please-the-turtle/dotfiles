@@ -1,5 +1,5 @@
 window:
-  opacity: 0
+  opacity: 1
   padding:
     x: 4
     y: 4
@@ -14,7 +14,7 @@ scrolling:
 shell:
   program: /bin/bash
 
-# background_oppacity: 0.3
+# background_oppacity: 1
 
 font:
   normal:

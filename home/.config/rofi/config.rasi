@@ -23,7 +23,7 @@ configuration {
 @theme "/dev/null"
 
 * {
-  bg:  #28282855;
+  bg:  #282828;
   bg2: #ebdbb2;
   bg3: #1d2021;
   bg4: #b8bb26;
