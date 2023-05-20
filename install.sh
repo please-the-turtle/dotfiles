@@ -58,12 +58,12 @@ installYay() {
 installCorePackages() {
   yay -S --needed \
     pipewire wireplumber \
-	  wayland xwayland xdg-utils xdg-user-dirs linux-headers \
+    wayland xwayland xdg-utils xdg-user-dirs linux-headers \
     alacritty \
-	  networkmanager \
-	  sddm-git hyprland-git waybar-hyprland-git \
+    networkmanager \
+    sddm-git hyprland-git waybar-hyprland-git \
     xdg-desktop-portal-hyprland wl-copy \
-	  rofi-wayland rofi-calc \
+    rofi-wayland rofi-calc \
     gvfs \
     ttf-hack ttf-hack-nerd ttf-font-awesome noto-fonts-emoji \
     alsa-utils alsa-firmware \
@@ -72,10 +72,10 @@ installCorePackages() {
     brightnessctl \
     blueman \
     swayidle udev-block-notify wlogout \
-  	dunst \
+    dunst \
     polkit xfce-polkit \
     hyprpicker \
-	  tlpui \
+    tlpui \
     checkupdates+aur \
     swaybg \
     mocu-xcursor

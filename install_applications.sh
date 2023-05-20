@@ -14,3 +14,4 @@ yay -S --needed \
 	udisks2 \
 	viewnior \
 	easyeffects calf lsp-plugins \
+	udisks2 udiskie \
