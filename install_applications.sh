@@ -16,3 +16,5 @@ yay -S --needed \
   easyeffects calf lsp-plugins \
   udisks2 udiskie \
   tty-clock-git \
+  mellowplayer \
+
