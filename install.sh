@@ -78,7 +78,8 @@ installCorePackages() {
     tlpui \
     checkupdates+aur \
     swaybg \
-    mocu-xcursor
+    mocu-xcursor \
+    zsh-autosuggestions zsh-completions zsh-syntax-highlighting
 }
 
 importGSettings() {
