@@ -1,5 +1,5 @@
 window:
-  opacity: .5
+  opacity: 1
   padding:
     x: 4
     y: 4
@@ -12,7 +12,7 @@ scrolling:
   multiplier: 3
 
 shell:
-  program: /bin/bash
+  program: /bin/zsh
 
 # background_oppacity: 0.3
 
@@ -514,7 +514,7 @@ schemes:
     primary:
       # hard contrast: background = '0x1d2021'
       # background: '0x1d2021'
-      background: '0x282828'
+      background: '0x1D2021'
       # soft contrast: background = '0x32302f'
       foreground: '0xebdbb2'
     normal:
