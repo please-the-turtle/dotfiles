@@ -212,6 +212,17 @@ M.lspconfig = {
       "diagnostic setloclist",
     },
 
+    ["<leader>dt"] = {
+      function()
+        if (vim.diagnostic.is_disabled()) then
+          vim.diagnostic.enable()
+        else
+          vim.diagnostic.disable()
+        end
+      end,
+      "toggle diagnostic",
+    },
+
     ["<leader>fm"] = {
       function()
         vim.lsp.buf.format { async = true }
