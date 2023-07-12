@@ -13,7 +13,7 @@ chmod +x install.sh install_applications.sh && ./install.sh
 ## Software
 ### Display
 - [**Wayland**](https://wayland.freedesktop.org/)
-- [**SDDM**](https://github.com/sddm/sddm)
+- [**Greetd**](https://sr.ht/~kennylevinsen/greetd/)
 - [**Hyprland**](https://hyprland.org/)
 - [**Waybar**](https://github.com/Alexays/Waybar)
 - [**Swaybg**](https://github.com/swaywm/swaybg)

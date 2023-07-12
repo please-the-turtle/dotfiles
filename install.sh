@@ -61,7 +61,7 @@ installCorePackages() {
     wayland xwayland xdg-utils xdg-user-dirs linux-headers \
     alacritty \
     networkmanager \
-    sddm-git hyprland-git waybar-hyprland-git \
+    greetd greetd-tuigreet hyprland-git waybar-hyprland-git \
     xdg-desktop-portal-hyprland wl-copy \
     rofi-wayland rofi-calc \
     gvfs \
