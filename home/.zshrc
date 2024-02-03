@@ -17,4 +17,4 @@ bindkey ';5~' kill-word
 
 eval "$(starship init zsh)"
 
-source /home/alexey/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
